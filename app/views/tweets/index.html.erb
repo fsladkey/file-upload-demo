@@ -1,0 +1,15 @@
+<% [1,2,3,4].each do |num| %>
+  <h<%= num %>>
+    All the tweets <%= num %>
+  </h<%= num %>>
+<% end %>
+
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <a href="<%= tweet_url(tweet.id) %>">
+        <%= tweet.body %>
+      </a>
+    </li>
+  <% end %>
+</ul>
