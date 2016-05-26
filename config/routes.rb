@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-
+  root to: 'static_pages#root'
   resources :tweets
+
+  namespace :api do
+    resources :tweets, only: [:index, :create, :show]
+  end
+
 
 end
 
