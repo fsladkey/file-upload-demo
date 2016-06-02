@@ -18,7 +18,6 @@ TweetStore.find = function (id) {
 };
 
 TweetStore.__onDispatch = function (payload) {
-  debugger;
   switch (payload.actionType) {
     case TweetConstants.RECEIVE_ALL:
       _tweets = payload.tweets;

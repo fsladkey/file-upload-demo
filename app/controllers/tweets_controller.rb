@@ -2,14 +2,10 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    # render json: @tweets
-    render :index # this is default, so if you skip this line
-    # rails will still know what you're doing.
   end
 
   def show
     @tweet = Tweet.find(params[:id])
-    # render json: @tweet
     render :show
   end
 
@@ -21,17 +17,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
 
-    if @tweet.save # will return false if fails validations
-
-      # render json: @tweet # bad idea
-      # render :show # also a bad idea
-      # render tweet_url # also a bad idea
-
-      redirect_to tweet_url(@tweet.id) # a great idea! make a new req to that tweet's show page
-
-      # tweet_url(id) comes from the prefix you see when you call rake routes
+    if @tweet.save
+      redirect_to tweet_url(@tweet.id)
     else
-      # render json: @tweet.errors.full_messages, status: :unprocessable_entity
       render :new
     end
   end

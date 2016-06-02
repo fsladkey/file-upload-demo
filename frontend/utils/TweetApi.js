@@ -15,8 +15,17 @@ var TweetApi = {
     });
   },
 
-  createTweet: function (tweet) {
-
+  createTweet: function (tweet, callback) {
+    $.ajax({
+      url: "/api/tweets",
+      method: "POST",
+      dataType: "json",
+      data: {tweet: tweet},
+      success: function() {
+        debugger
+        callback();
+      }
+    })
   },
 
 

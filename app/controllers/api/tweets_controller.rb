@@ -1,16 +1,16 @@
 class Api::TweetsController < ApplicationController
 
   def index
-    render json: Tweet.all
+    @tweets = Tweet.includes(:author).all
   end
 
   def create
     tweet = Tweet.create(tweet_params)
-    render json: tweet
+    render :show
   end
 
   def show
-    render json: Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
   end
 
   private

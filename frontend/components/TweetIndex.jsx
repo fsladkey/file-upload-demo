@@ -1,4 +1,6 @@
 var React = require("react");
+var Link = require("react-router").Link;
+
 var TweetStore = require("../stores/TweetStore.js");
 var TweetApi = require('../utils/TweetApi');
 
@@ -21,25 +23,29 @@ var TweetIndex = React.createClass({
     this.setState({ tweets: TweetStore.all() });
   },
 
-  render: function () {
-
-    var tweets = this.state.tweets.map(function (tweet) {
+  tweets: function () {
+    return this.state.tweets.map(function (tweet) {
       return (
         <article key={ tweet.id }>
-          <p>{ tweet.body }</p>
+          <h4>{ tweet.body }</h4>
+          <p>{"- " + tweet.author_name }</p>
         </article>
       );
     });
+  },
 
+  render: function () {
 
     return (
       <section className="tweets">
-        <h2>All the Tweets!!!!</h2>
-        { tweets }
+        <Link to="/new">New Tweet</Link>
+        {this.props.children}
+        { this.tweets() }
       </section>
     );
   }
 
 });
+
 
 module.exports = TweetIndex;
