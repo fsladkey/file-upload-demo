@@ -5,7 +5,7 @@ class Api::TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.create(tweet_params)
+    @tweet = User.find_by(name: "Fred").tweets.create(tweet_params)
     render :show
   end
 
@@ -16,6 +16,6 @@ class Api::TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:body, :author_id)
+    params.require(:tweet).permit(:body)
   end
 end

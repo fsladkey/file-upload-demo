@@ -22,10 +22,9 @@ var TweetApi = {
       dataType: "json",
       data: {tweet: tweet},
       success: function() {
-        debugger
         callback();
       }
-    })
+    });
   },
 
 

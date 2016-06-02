@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-ruby 2.1.2
+ruby '2.1.2'
 
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
@@ -17,6 +17,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry-rails'
 gem 'faker'
+
+
+# gem "paperclip", '5.0.0.beta1'
+# gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

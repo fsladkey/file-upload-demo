@@ -11,23 +11,22 @@ var TweetForm = React.createClass({
 
   getInitialState: function () {
     return({
-      author_id: 14,
       body: ""
-    })
+    });
   },
 
   updateBody: function (e) {
     this.setState({
       body: e.target.value
-    })
+    });
   },
 
   handleSubmit: function (e) {
-    TweetApi.createTweet(this.state, this.goBack)
+    TweetApi.createTweet(this.state, this.goBack);
   },
 
   goBack: function () {
-    this.context.router.push("/")
+    this.context.router.push("/");
   },
 
   render: function () {
@@ -39,7 +38,7 @@ var TweetForm = React.createClass({
         <Link to="/">Back to Tweets</Link>
         <input type="text" onChange={this.updateBody}></input>
         <button onClick={this.handleSubmit}>Make Tweet!</button>
-      </div>)
+      </div>);
   }
 });
 
