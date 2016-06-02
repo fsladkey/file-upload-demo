@@ -122,7 +122,7 @@ if (file) {
   this.setState({ imageUrl: "", imageFile: null });
 }
 ```
-- Once it's loaded we can preview the image using the imageUrl we saved in state. Baller.
+- Once it's loaded we can preview the image using the imageUrl we saved in state. Awesome!
 
 ### Image Uploading
 - We still haven't sent the file to the server to be saved. To upload the file we will instantiate a new

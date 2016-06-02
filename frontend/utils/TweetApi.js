@@ -15,12 +15,14 @@ var TweetApi = {
     });
   },
 
-  createTweet: function (tweet, callback) {
+  createTweet: function (formData, callback) {
     $.ajax({
       url: "/api/tweets",
       method: "POST",
       dataType: "json",
-      data: {tweet: tweet},
+      contentType: false,
+      processData: false,
+      data: formData,
       success: function() {
         callback();
       }

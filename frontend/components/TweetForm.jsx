@@ -11,7 +11,9 @@ var TweetForm = React.createClass({
 
   getInitialState: function () {
     return({
-      body: ""
+      body: "",
+      imageFile: null,
+      imageUrl: null
     });
   },
 
@@ -21,8 +23,23 @@ var TweetForm = React.createClass({
     });
   },
 
+  updateFile: function (e) {
+    var file = e.currentTarget.files[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  },
+
   handleSubmit: function (e) {
-    TweetApi.createTweet(this.state, this.goBack);
+    var formData = new FormData();
+    formData.append("tweet[body]", this.state.body);
+    formData.append("tweet[image]", this.state.imageFile);
+    TweetApi.createTweet(formData, this.goBack);
   },
 
   goBack: function () {
@@ -36,8 +53,10 @@ var TweetForm = React.createClass({
         Tweet form!
 
         <Link to="/">Back to Tweets</Link>
-        <input type="text" onChange={this.updateBody}></input>
+        <input type="text" onChange={this.updateBody}/>
+        <input type="file" onChange={this.updateFile}/>
         <button onClick={this.handleSubmit}>Make Tweet!</button>
+        <img src={this.state.imageUrl}/>
       </div>);
   }
 });
