@@ -1,7 +1,7 @@
 class Api::TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.includes(:author).all
+    @tweets = Tweet.includes(:author).all.order(created_at: :desc)
   end
 
   def create
