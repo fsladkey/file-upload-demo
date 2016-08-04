@@ -1,12 +1,16 @@
 # React File Upload Demo
 This demo shows how to upload images using React, Paperclip, and AWS S3.
 
+# Video Demo
+- [Part One (paperclip, aws)](https://vimeo.com/169111348)
+- [Part Two (uploading files via a form)](https://vimeo.com/169111248)
+
 ## Key Files
 - [application.rb](./config/application.rb)
-- [post.rb](./app/models/post.rb)
-- [_post.json.jbuilder](./app/views/api/posts/_post.json.jbuilder)
-- [api_util.js](./app/assets/javascripts/util/api_util.js)
-- [post_form.js.jsx](./app/assets/javascripts/components/post_form.js.jsx)
+- [tweet.rb](./app/models/tweet.rb)
+- [_tweet.json.jbuilder](./app/views/api/tweets/_tweet.json.jbuilder)
+- [TweetApi.js](./frontend/utils/TweetApi.js)
+- [TweetForm.jsx](./frontend/components/TweetForm.jsx)
 
 ## Useful Docs
 - [Paperclip](https://github.com/thoughtbot/paperclip#paperclip)
@@ -122,7 +126,7 @@ if (file) {
   this.setState({ imageUrl: "", imageFile: null });
 }
 ```
-- Once it's loaded we can preview the image using the imageUrl we saved in state. Baller.
+- Once it's loaded we can preview the image using the imageUrl we saved in state. Awesome!
 
 ### Image Uploading
 - We still haven't sent the file to the server to be saved. To upload the file we will instantiate a new

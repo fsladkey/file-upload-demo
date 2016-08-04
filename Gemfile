@@ -19,8 +19,9 @@ gem 'pry-rails'
 gem 'faker'
 
 
-# gem "paperclip", '5.0.0.beta1'
-# gem 'figaro'
+gem "paperclip", '5.0.0.beta1'
+gem 'figaro'
+gem 'aws-sdk', '>= 2.0'
 
 group :development, :test do
   gem 'byebug'

@@ -1,7 +1,7 @@
 class Api::TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.includes(:author).all
+    @tweets = Tweet.includes(:author).all.order(created_at: :desc)
   end
 
   def create
@@ -16,6 +16,6 @@ class Api::TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:body)
+    params.require(:tweet).permit(:body, :image)
   end
 end

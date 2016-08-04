@@ -18,3 +18,6 @@ app/assets/javascripts/bundle.js.map
 
 .DS_Store
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml

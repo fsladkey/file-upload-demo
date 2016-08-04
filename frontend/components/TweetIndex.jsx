@@ -27,6 +27,7 @@ var TweetIndex = React.createClass({
     return this.state.tweets.map(function (tweet) {
       return (
         <article key={ tweet.id }>
+          <img src={tweet.image_url}/>
           <h4>{ tweet.body }</h4>
           <p>{"- " + tweet.author_name }</p>
         </article>
