@@ -52,7 +52,7 @@ This demo shows how to upload images using React, Paperclip, and AWS S3.
 ### Setting up Paperclip
 
 - ImageMagick is a dependency of paperclip. It is installed on the a/A machines but you will need to install it at home. `brew install imagemagick`
-- Add the gem of course `gem "paperclip", '5.0.0.beta1'`. We're using the beta because it's the only version compatible with the latest version of AWS.
+- Add the gem of course `gem "paperclip", '~> 5.0.0'`. The video references the beta because it was the only version compatible with the latest version of AWS at the time it was filmed, but you shoud not need the beta anymore.
 - We need to create a migration to add the attached file columns. We'll add them to posts for the demo. `rails generate paperclip post image`
 - We also need to add code to the model to tell it how to handle attached files. Check the [Paperclip docs](https://github.com/thoughtbot/paperclip#paperclip) for more info!
 
